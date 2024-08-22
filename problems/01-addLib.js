@@ -10,7 +10,8 @@ console.log(makeAddLib("RUN", "FANCY", "ParK")); // => "I shall RUN to the FANCY
 
 
 function makeAddLib(verb, adj, noun) {
-  // Your code here 
+// Using string interpolation
+  return `I shall ${verb} to the ${adj} ${noun}?`;
 
 }
 

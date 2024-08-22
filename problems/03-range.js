@@ -9,7 +9,12 @@ range(7, 6); // []
 ***********************************************************************/
 
 function range(start, end) {
-  // Your code here 
+// Base case: if the end is less than or equal to the start, return an empty array
+  if (end <= start) {
+    return [];
+  }
+// Recurive case: Return an array with the starting number, then the range using start + 1 until the end number
+  return [start].concat(range(start +1, end));
 }
 
 

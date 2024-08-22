@@ -47,7 +47,43 @@ Run tests on just this file by typing `npm test test/03-most-frequent-vowel-spec
 on the command line.
 ***********************************************************************/
 
-// Your code here 
+function mostFrequentVowel(words, counter = {}) {
+// Base Case: if there are no words left, find and return the most frequent vowel
+    if (words.length === 0) {
+// If 'counter' is empty, return an empty array
+      if (Object.keys(counter).length === 0) return "";
+// Determining the most frequent vowel
+      let maxCount = -1;
+      let mostFrequent = "";
+      for (const vowel in counter) {
+        if (counter[vowel] > maxCount) {
+          maxCount = counter[vowel];
+          mostFrequent = vowel;
+        }
+      }
+      return mostFrequent;
+    }
+// Recursive Case: Processing the last word, then updating the counter
+    const lastWord = words[words.length - 1];
+    const remainingWords = words.slice(0, -1);
+// Counting the last words' vowels
+    countVowels(lastWord, counter);
+// Recursive call with the remaining words
+    return mostFrequentVowel(remainingWords, counter);
+}
+
+function countVowels(word, counter) {
+  const vowels = 'aeiou';
+  for (const char of word) {
+    if (vowels.includes(char)) {
+      if (counter[char]) {
+        counter[char]++;
+      } else {
+        counter[char] = 1;
+      }
+    }
+  }
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {

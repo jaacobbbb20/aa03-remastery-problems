@@ -18,7 +18,18 @@ sort([]); // []
 
 
 function sort(nums, sorted = []) {
-    // Your code here 
+// Base Case: if 'nums' is empty, return 'sorted'
+    if (nums.length === 0) {
+        return sorted;
+    }
+// Find the smallest element in 'nums'
+    let smallest = Math.min(...nums);
+// Add the smallest element to the end of the 'sorted' array
+    sorted.push(smallest);
+// Remove the smallest element from 'nums'
+    nums.splice(nums.indexOf(smallest), 1);
+// Recursively call 'sort()' with updated 'sorted' and 'nums'
+    return sort(nums, sorted);
 }
 
 

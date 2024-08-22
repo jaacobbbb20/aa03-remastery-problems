@@ -15,7 +15,20 @@
 */
 
 function r2d2Speaks(code) {
-  // Your code here 
+// Start with setting the delay to 0
+  let delay = 0;
+// Go over each element inside of the code array
+  code.forEach(value => {
+// Determine the message and delay
+    const message = value === 0 ? 'beep' : 'boop';
+    const messageDelay = value === 0 ? 400 : 800;
+// Use setTimeout to spit out the message after the delay
+    setTimeout(() => {
+      console.log(message);
+    }, delay);
+// Update the delay for the following message
+    delay += messageDelay;
+  });
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
