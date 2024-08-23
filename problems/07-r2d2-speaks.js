@@ -24,8 +24,8 @@ function r2d2Speaks(code) {
     const messageDelay = value === 0 ? 400 : 800;
 // Use setTimeout to spit out the message after the delay
     setTimeout(() => {
-      console.log(message);
-    }, delay);
+    }, messageDelay);
+    console.log(message);
 // Update the delay for the following message
     delay += messageDelay;
   });
